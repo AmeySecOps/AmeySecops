@@ -1,0 +1,335 @@
+/* Amey Jadhav — developer site. Tokens: housing/beam/steel. */
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --housing: #101214;
+  --panel: #1b1e21;
+  --hairline: #2a2e32;
+  --beam: #ffd37a;
+  --beam-dim: #7a6435;
+  --steel: #8b96a1;
+  --text: #edebe6;
+  --text-muted: #9ba1a8;
+  --max-copy: 640px;
+  --max-page: 1000px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--housing);
+  color: var(--text);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+a {
+  color: var(--beam);
+  text-decoration: none;
+  border-bottom: 1px solid var(--beam-dim);
+}
+
+a:hover,
+a:focus-visible {
+  border-bottom-color: var(--beam);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--beam);
+  outline-offset: 3px;
+}
+
+.display {
+  font-family: 'Big Shoulders Display', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Nav ---------- */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-page);
+  margin: 0 auto;
+  padding: 28px 24px;
+}
+
+.nav__brand {
+  font-family: 'Big Shoulders Display', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text);
+  border-bottom: none;
+}
+
+.nav__links {
+  display: flex;
+  gap: 28px;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.nav__links a {
+  color: var(--text-muted);
+  border-bottom: 1px solid transparent;
+}
+
+.nav__links a:hover,
+.nav__links a:focus-visible {
+  color: var(--text);
+  border-bottom-color: var(--steel);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  padding: 72px 24px 96px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(255, 211, 122, 0.16) 0%, rgba(255, 211, 122, 0.05) 35%, rgba(16, 18, 20, 0) 65%);
+  pointer-events: none;
+}
+
+.hero__icon {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 28px;
+}
+
+.hero__eyebrow {
+  position: relative;
+  color: var(--text-muted);
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+
+.hero h1 {
+  position: relative;
+  font-size: clamp(44px, 8vw, 80px);
+  line-height: 0.95;
+  margin: 0 0 20px;
+  color: var(--text);
+}
+
+.hero h1 span {
+  color: var(--beam);
+}
+
+.hero p {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto 36px;
+  color: var(--text-muted);
+  font-size: 18px;
+}
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--beam);
+  color: #1a1305;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: 3px;
+  border-bottom: none;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: #ffdd97;
+  border-bottom: none;
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--hairline);
+  padding: 13px 27px;
+}
+
+.button--ghost:hover,
+.button--ghost:focus-visible {
+  border-color: var(--steel);
+}
+
+/* ---------- Features ---------- */
+
+.features {
+  max-width: var(--max-page);
+  margin: 0 auto;
+  padding: 0 24px 96px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.feature {
+  padding: 32px 28px;
+  border-top: 1px solid var(--hairline);
+}
+
+.feature:not(:last-child) {
+  border-right: 1px solid var(--hairline);
+}
+
+.feature h3 {
+  font-family: 'Big Shoulders Display', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 10px;
+  color: var(--text);
+}
+
+.feature p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+@media (max-width: 720px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+  .feature {
+    border-right: none !important;
+  }
+}
+
+/* ---------- About ---------- */
+
+.about {
+  border-top: 1px solid var(--hairline);
+  padding: 80px 24px;
+}
+
+.about__inner {
+  max-width: var(--max-copy);
+  margin: 0 auto;
+}
+
+.about h2 {
+  font-family: 'Big Shoulders Display', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  margin: 0 0 20px;
+}
+
+.about p {
+  color: var(--text-muted);
+  margin: 0 0 16px;
+}
+
+.about__links {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+  font-size: 15px;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  border-top: 1px solid var(--hairline);
+  padding: 32px 24px;
+}
+
+.footer__inner {
+  max-width: var(--max-page);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer__links {
+  display: flex;
+  gap: 22px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.footer__links a {
+  color: var(--text-muted);
+}
+
+.footer__copy {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ---------- Simple pages (privacy policy) ---------- */
+
+.page {
+  max-width: var(--max-copy);
+  margin: 0 auto;
+  padding: 72px 24px 96px;
+}
+
+.page h1 {
+  font-family: 'Big Shoulders Display', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  margin: 0 0 12px;
+}
+
+.page .updated {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0 0 48px;
+}
+
+.page h2 {
+  font-family: 'Big Shoulders Display', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  margin: 40px 0 12px;
+}
+
+.page p,
+.page li {
+  color: var(--text-muted);
+}
+
+.page ul {
+  padding-left: 20px;
+}
+
+.page a {
+  color: var(--beam);
+}
